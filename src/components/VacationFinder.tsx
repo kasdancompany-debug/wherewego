@@ -1,6 +1,7 @@
 "use client";
 
 import { useMemo, useState } from "react";
+import AirportPicker from "./AirportPicker";
 
 type FinderData = {
   adults: number;
@@ -27,8 +28,6 @@ const WHEN_OPTIONS = [
   "Christmas",
   "Just looking",
 ];
-
-const DEPARTURE_OPTIONS = ["Sault Ste. Marie", "Toronto", "Detroit", "Other"];
 
 const DESTINATION_OPTIONS = [
   "Mexico",
@@ -315,17 +314,10 @@ export default function VacationFinder() {
             <legend className="font-display font-semibold uppercase text-3xl sm:text-4xl mb-7">
               Where can you leave from?
             </legend>
-            <div className="grid grid-cols-2 gap-3">
-              {DEPARTURE_OPTIONS.map((opt) => (
-                <Pill
-                  key={opt}
-                  active={data.departures.includes(opt)}
-                  onClick={() => setData((d) => ({ ...d, departures: toggle(d.departures, opt) }))}
-                >
-                  {opt}
-                </Pill>
-              ))}
-            </div>
+            <AirportPicker
+              value={data.departures}
+              onChange={(next) => setData((d) => ({ ...d, departures: next }))}
+            />
             <label className="mt-6 flex items-center gap-3 text-[14.5px]">
               <input
                 type="checkbox"
