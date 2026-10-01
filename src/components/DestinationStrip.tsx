@@ -18,7 +18,7 @@ export default function DestinationStrip() {
       </div>
 
       <div className="reveal pl-6 md:pl-10 lg:pl-16">
-        <div className="flex gap-4 overflow-x-auto snap-x snap-mandatory pb-8 pr-6 md:pr-10 lg:pr-16 [scrollbar-width:thin]">
+        <div className="scroll-fancy flex gap-4 overflow-x-auto snap-x snap-mandatory pb-5 pr-6 md:pr-10 lg:pr-16">
           {destinations.map((d) => (
             <DestinationCard key={d.slug} d={d} />
           ))}
